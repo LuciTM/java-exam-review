@@ -91,77 +91,6 @@ Build everything yourself, no AI, no copy-pasting, no notes. Days are heavier no
 - Store mixed employees in an `ArrayList<Employee>` and loop through calling `calculatePay()` on each — **polymorphism** in action.
 - Bonus: add an interface `Payable` with `printPayslip()`, implemented in both subclasses.
 
----
-
-## Day 3 — Collections, Exceptions & Strings
-
-**Concepts to hit:** ArrayList, HashMap, HashSet, Iterator, Comparable, Comparator, generics, try/catch/finally, throw/throws, custom exceptions, String methods, StringBuilder
-
-### Simple Syntax Practice
-- `ArrayListDemo.java` — add/remove elements, access by index, `.size()`, `.contains()`; iterate with a regular `for` loop, then rewrite with `for-each`.
-- `HashMapDemo.java` — a word-frequency counter using `.put()`, `.get()`, `.containsKey()`, `.getOrDefault()`.
-- `HashSetDemo.java` — dedupe a list of numbers with duplicates.
-- `IteratorDemo.java` — loop with `.hasNext()`/`.next()`; remove an item mid-loop with `iterator.remove()`.
-- `ComparableDemo.java` — a class implementing `Comparable<T>`, overriding `compareTo()` to sort by one field.
-- `ComparatorDemo.java` — sort the same objects by a different field using a separate `Comparator`.
-- `GenericsDemo.java` — a simple generic class (`Box<T>`) and a generic method.
-- `TryCatchFinally.java` — trigger `ArithmeticException` on purpose (divide by zero); confirm `finally` always runs.
-- `MultiCatch.java` — catch two different exception types in one try.
-- `ThrowThrows.java` — manually throw `IllegalArgumentException`; declare a method with `throws Exception`.
-- `CustomExceptionDemo.java` — create your own exception class extending `Exception`; throw and catch it.
-- `StringMethods.java` — one program exercising `.substring()`, `.split()`, `.trim()`, `.indexOf()`, `.replace()`, `.charAt()`.
-- `EqualsVsDoubleEquals.java` — compare a literal String and a `new String(...)`, explain the difference out loud.
-- `StringBuilderDemo.java` — build a string in a loop with `.append()`; try `.reverse()`, `.insert()`, `.deleteCharAt()`.
-
-### Main Project: `Student.java`, `InvalidScoreException.java`, `StudentRecordsMain.java`
-- Store students (`name`, `score`) in an `ArrayList<Student>`; use a `HashSet<String>` to block duplicate names from being added.
-- Track extra info (e.g. number of absences) in a `HashMap<String, Integer>`.
-- Make `Student` implement `Comparable<Student>` to rank by score; write a separate `Comparator` to sort alphabetically by name instead — run and print both.
-- Use an `Iterator` to remove any student below a passing score (avoids `ConcurrentModificationException`).
-- Create a custom checked exception `InvalidScoreException`, thrown when a score is entered outside 0–100, caught with try/catch, and confirm a `finally` block always logs "record processed."
-- Use **String methods** to clean/format input names (`.trim()`, `.toUpperCase()`), and `StringBuilder` to build a formatted summary report line by line.
-- Bonus: a small generic method `<T> void printList(List<T> list)` reused for printing both students and the absence map's keys.
-
----
-
-## Day 4 — File I/O, Algorithms & Timed Mock Build
-
-**Concepts to hit:** Scanner, file I/O (if covered), sorting (bubble/selection), searching (linear/binary), recursion, plus everything from Days 1–3 combined
-
-### Simple Syntax Practice
-- `ScannerDemo.java` — read an `int`, a `double`, and a `String` in one program (watch the `.nextLine()` buffer bug after `.nextInt()`).
-- `FileWriteRead.java` *(if covered)* — write a few lines to a `.txt` file with `FileWriter`/`BufferedWriter`, then read them back with `FileReader`/`BufferedReader`, wrapped in try/catch for `IOException`.
-- `BubbleSort.java` — implement it on an `int[]` from scratch, no `Collections.sort()`.
-- `SelectionSort.java` — same idea, different algorithm — write it separately to compare.
-- `LinearSearch.java` — implement it on an unsorted array.
-- `BinarySearch.java` — implement it on a sorted array — careful with `low/mid/high` boundaries.
-- `RecursionDemo.java` — write `factorial(n)`, `fibonacci(n)`, and a recursive array sum.
-
-### Morning — Warm-up project: `ContactBookMain.java`
-- Use `Scanner` to simulate adding a few contacts (name + number).
-- If file I/O is in scope: write contacts to `contacts.txt`, read them back, wrap in try/catch for `IOException`.
-- Implement **bubble or selection sort** yourself (no `Collections.sort()`) to alphabetize contacts.
-- Implement **binary search** to find a contact by name in the sorted list; compare it to a **linear search** fallback.
-- Add a recursive method `countVowels(String name)` to practice recursion outside of math examples.
-
-### Afternoon — Timed mock (combined project): `Book.java`, `Library.java`, `BookNotFoundException.java`, `LibraryMain.java`
-Set a timer matching your real exam length, then build:
-- A `Book` class (title, author, year, availability) — private fields, encapsulation.
-- A `Library` class holding an `ArrayList<Book>` (composition).
-- Methods to **add**, **search** by title (linear/binary search), and **sort** by year (`Comparable`) or title (`Comparator`).
-- A custom `BookNotFoundException`, thrown on a failed search, caught gracefully.
-- `borrowBook()` / `returnBook()` using if/else to check availability before changing state.
-- A text-menu loop (`while` + `switch`): 1 = Add, 2 = Search, 3 = List All, 4 = Exit.
-
-This single build touches nearly everything from the whole review — OOP, collections, exceptions, algorithms, and control flow.
-
-**End of day:**
-- Compile and fix errors yourself before checking anything.
-- Log every bug and *why* it happened in the mistake log.
-- Quick recap out loud: `==` vs `.equals()`, integer vs double division, array bounds, static vs instance, if/else vs switch, checked vs unchecked exceptions, overloading vs overriding.
-- Sleep well — that matters more than more code right now.
-
----
 
 ## Folder Structure
 
@@ -201,45 +130,6 @@ java-exam-review/
 │   ├── Payable.java               (interface, bonus)
 │   └── PayrollMain.java           (main/test class)
 │
-├── day3-collections-exceptions/
-│   ├── syntax-practice/
-│   │   ├── ArrayListDemo.java
-│   │   ├── HashMapDemo.java
-│   │   ├── HashSetDemo.java
-│   │   ├── IteratorDemo.java
-│   │   ├── ComparableDemo.java
-│   │   ├── ComparatorDemo.java
-│   │   ├── GenericsDemo.java
-│   │   ├── TryCatchFinally.java
-│   │   ├── MultiCatch.java
-│   │   ├── ThrowThrows.java
-│   │   ├── CustomExceptionDemo.java
-│   │   ├── StringMethods.java
-│   │   ├── EqualsVsDoubleEquals.java
-│   │   └── StringBuilderDemo.java
-│   ├── Student.java
-│   ├── InvalidScoreException.java
-│   └── StudentRecordsMain.java
-│
-├── day4-fileio-algorithms-mock/
-│   ├── syntax-practice/
-│   │   ├── ScannerDemo.java
-│   │   ├── FileWriteRead.java
-│   │   ├── BubbleSort.java
-│   │   ├── SelectionSort.java
-│   │   ├── LinearSearch.java
-│   │   ├── BinarySearch.java
-│   │   └── RecursionDemo.java
-│   ├── contact-book/
-│   │   ├── ContactBookMain.java
-│   │   └── contacts.txt           (generated if you do file I/O)
-│   │
-│   └── library-system/
-│       ├── Book.java
-│       ├── Library.java
-│       ├── BookNotFoundException.java
-│       └── LibraryMain.java
-│
 └── notes/
     ├── java-syntax-notes.md
     └── java-exam-review-workflow.md
@@ -254,14 +144,3 @@ java-exam-review/
 
 ---
 
-## Mistake Log
-
-Fill this in daily — it's your personal list of things to double-check on exam day.
-
-| Day | Mistake | Fix / Rule to remember |
-|---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
