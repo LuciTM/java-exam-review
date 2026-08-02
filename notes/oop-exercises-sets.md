@@ -12,6 +12,22 @@ Each tier tells you exactly what output is expected, so you know what you're bui
 
 ---
 
+⏱️ Time Limits
+ 
+Time yourself per tier, not per whole set — this keeps the pressure realistic without burning out on one set. If you go over, finish anyway, but log it as a mistake ("took too long on X") so you know what to drill separately.
+ 
+| Tier | Time Limit | Why |
+|---|---|---|
+| 🟢 Easy | 10 minutes | Pure input/output — if this takes longer, the issue is Scanner syntax or class structure, not logic. |
+| 🟡 Medium | 20 minutes | Method calling + inheritance takes more typing and more careful `super` placement. |
+| 🔴 Hard | 30 minutes | Computation requires tracing logic carefully — rushing here causes silent wrong-answer bugs, not compile errors. |
+ 
+**Per set total: ~60 minutes.** All 3 sets: **~3 hours**, ideally spread across 2–3 sessions rather than done back-to-back — computation-heavy tiers especially benefit from a fresh head.
+ 
+If a Hard tier repeatedly blows past 30 minutes, that's a signal to stop, review the Medium tier's method-calling pattern first, and retry rather than pushing through — the Hard tiers build directly on Medium's structure.
+
+---
+
 # SET 1 — Vehicle Rental System
 
 **Classes involved:** `Vehicle` (base), `Car` and `Motorcycle` (subclasses)
